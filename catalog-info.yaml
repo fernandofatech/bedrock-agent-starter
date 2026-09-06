@@ -4,7 +4,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: app-bedrock-agent-starter
-  description: Bilingual Amazon Bedrock agent starter with Lambda tools, Terraform, evaluations, docs and DevSecOps automation.
+  description: "Bilingual Amazon Bedrock agent starter with Lambda tools, Terraform, evaluations, docs and DevSecOps automation."
   annotations:
     github.com/project-slug: fernando-moretes/app-bedrock-agent-starter
     backstage.io/source-location: url:https://github.com/fernando-moretes/app-bedrock-agent-starter
@@ -17,7 +17,9 @@ metadata:
       title: SonarQube
     - url: https://defectdojo.home.lab/product?name=app-bedrock-agent-starter
       title: DefectDojo
-  tags: [website, ci-python.yml]
+  # tags so aceitam [a-z0-9-]: ci-python.yml (ci-node.yml) tem ponto e reprovava
+  # todo componente na policy check do Backstage.
+  tags: [website, python]
 spec:
   type: website
   lifecycle: production
