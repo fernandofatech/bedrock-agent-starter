@@ -7,12 +7,16 @@
  */
 workspace "app-bedrock-agent-starter" "Bilingual Amazon Bedrock agent starter with Lambda tools, Terraform, evaluations, docs and DevSecOps automation." {
 
+    configuration {
+        scope softwaresystem
+    }
+
     model {
         usuario = person "Usuário"
         sistema = softwareSystem "app-bedrock-agent-starter" "Bilingual Amazon Bedrock agent starter with Lambda tools, Terraform, evaluations, docs and DevSecOps automation." {
             app = container "Aplicação" "Descreva o que roda aqui" "ci-python.yml"
         }
-        usuario -> sistema.app "Usa"
+        usuario -> sistema.app "Usa" "HTTPS"
     }
 
     views {
@@ -25,9 +29,19 @@ workspace "app-bedrock-agent-starter" "Bilingual Amazon Bedrock agent starter wi
             autoLayout lr
         }
         styles {
-            element "Person" { shape person; background #08427b; color #ffffff }
-            element "Software System" { background #1168bd; color #ffffff }
-            element "Container" { background #438dd5; color #ffffff }
+            element "Person" {
+                shape person
+                background #08427b
+                color #ffffff
+            }
+            element "Software System" {
+                background #1168bd
+                color #ffffff
+            }
+            element "Container" {
+                background #438dd5
+                color #ffffff
+            }
         }
     }
 }
